@@ -30,24 +30,14 @@ function HomePage() {
     }
   
 
-    console.log(listMovies);
     return (
     <div>
         
-        <NavBarHome />
-{/*}
-        {listMovies.map((cadaMovieConsole) => { 
-            console.log(cadaMovieConsole)
-        })}
 
-        {listMovies.map((cadaMovie) => {
-            return (
-            <MovieCard 
-            cadaMovieID={cadaMovie.ID}/>
-            )
-        })}
-
-        */}
+        <div>
+            <button>Películas pendientes</button>
+            <button>Películas ya vistas</button>
+        </div>
 
 
         {listMovies.map((cadaMovie, index) => {
@@ -58,10 +48,6 @@ function HomePage() {
             )
      
         })}
-
-       
-
-
 
     </div>
   )
