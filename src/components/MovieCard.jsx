@@ -41,13 +41,13 @@ function MovieCard(props) {
     //console.log(datosMovieAPI)
 
     // Pasamos la data de tipo entero a tipo String para no dar problemas por parámetros dinámicos
-    let movieIdForDetails = datosMovieAPI.id.toString()
+    // let movieIdForDetails = datosMovieAPI.id.toString()
 
   return (
     <div>
 
         <h2>{datosMovieAPI.title}</h2>
-        <Link to = {`/movieDetails/${movieIdForDetails}`} >
+        <Link to = {`/movieDetails/${props.cadaMovie.id}/${props.cadaMovie.movieIdAPI}`} >
             <img src={imageURL} alt="poster-pelicula" />
         </Link>
 

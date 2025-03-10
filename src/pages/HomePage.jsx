@@ -29,6 +29,7 @@ function HomePage() {
         )
     }
   
+    console.log(listMovies);
 
     return (
     <div>
