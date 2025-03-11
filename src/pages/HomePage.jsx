@@ -6,11 +6,11 @@ import axios from "axios";
 function HomePage() {
 
     const [listMovies, setListMovies] = useState(null);
-    const [pelisNoVistas, setPelisNoVistas] = useState(true);
+    const [pelisVistas, setPelisVistas] = useState(false);
   
   useEffect(() => {
 
-    axios.get("http://localhost:5005/watchMovies?watch=false")
+    axios.get(`http://localhost:5005/watchMovies?watch=${pelisVistas}`)
     .then((response) => {
         //console.log(response.data)
         setListMovies(response.data)
@@ -20,6 +20,16 @@ function HomePage() {
     })
 
   },[])
+
+  const mostrarPeliculasPendientes = () => {
+        setPelisVistas(false);
+        console.log(pelisVistas)
+    }
+
+  const mostrarPeliculasVistas = () => {
+        setPelisVistas(true);
+        console.log(pelisVistas)
+    }
   
 
     if(listMovies === null)
@@ -36,9 +46,9 @@ function HomePage() {
         
 
         <div>
-            <button>Películas pendientes</button>
-            <button>Películas ya vistas</button>
-            
+            <button onClick={mostrarPeliculasPendientes}>Películas pendientes</button>
+            <button onClick={mostrarPeliculasVistas}>Películas ya vistas</button>
+
         </div>
 
 

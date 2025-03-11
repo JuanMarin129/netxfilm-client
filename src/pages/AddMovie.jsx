@@ -33,6 +33,44 @@ function AddMovie() {
 
     },[])
 
+    const addPeliculaListaVista = async (evento) => {
+        evento.preventDefault()
+
+
+        try {
+
+            const response = await axios.post("http://localhost:5005/watchMovies", {
+                rating: null,
+                watch: true,
+                movieIdAPI: datoMovieAPI.id
+            })
+            
+        } catch (error) {
+            console.log(error)
+            
+        }
+
+    }
+
+    const addPeliculaListaPendiente = async (evento) => {
+        evento.preventDefault()
+
+
+        try {
+
+            const response = await axios.post("http://localhost:5005/watchMovies", {
+                rating: null,
+                watch: false,
+                movieIdAPI: datoMovieAPI.id
+            })
+            
+        } catch (error) {
+            console.log(error)
+            
+        }
+
+    }
+
     if(datoMovieAPI === null) {
         return (
             <h3>Espere por favor...cargando la Data de la API de TMDB</h3>
@@ -56,8 +94,8 @@ function AddMovie() {
     </div>
 
     <div>
-      <button>Añadir a la lista de películas vistas</button>
-      <button>Añadir a la lista de películas pendientes</button>
+      <button onClick={addPeliculaListaVista}>Añadir a la lista de películas vistas</button>
+      <button onClick={addPeliculaListaPendiente}>Añadir a la lista de películas pendientes</button>
 
 
     </div>
