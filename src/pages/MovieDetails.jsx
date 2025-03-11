@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 
@@ -11,7 +11,7 @@ function MovieDetails() {
 const [movieDB, setMovieDB] = useState(null)
 const [datoMovieAPI, setDatoMovieAPI] = useState(null)
 const parametrosDinamicos = useParams();
-console.log(parametrosDinamicos)
+const navigate = useNavigate();
 const baseURLImage = "http://image.tmdb.org/t/p/w342"
 let imageURL = "";
 
@@ -49,6 +49,27 @@ useEffect(() => {
    
 
 },[])
+
+const eliminarPelicula = async (evento) => {
+
+  evento.preventDefault()
+
+  try {
+      await axios.delete(`http://localhost:5005/watchMovies/${parametrosDinamicos.movieID}`)
+
+      navigate("/")
+    
+  } 
+  
+  catch (error) {
+    console.log(error)
+    
+  }
+
+
+
+}
+
 
 if (datoMovieAPI === null || movieDB === null) {
   return (
@@ -100,7 +121,7 @@ imageURL = baseURLImage + datoMovieAPI.poster_path
         <Link to={`/editMovie/${parametrosDinamicos.movieID}/${parametrosDinamicos.movieIdAPI}`}   > 
           <button>Editar película</button>
         </Link>
-        <button>Eliminar película</button>
+        <button onClick={eliminarPelicula}>Eliminar película</button>
 
 
       </div>
