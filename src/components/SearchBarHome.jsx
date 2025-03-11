@@ -1,19 +1,52 @@
 import React, { useState } from 'react'
+import axios from "axios";
+import { Link } from 'react-router-dom';
 
 function SearchBarHome() {
   
   const [searchValue, setSearchValue] = useState("")
-  
+  const [listMoviesAPI, setListMoviesAPI] = useState(null);
+  const baseURLImage = "http://image.tmdb.org/t/p/w342"
+  let imageURL = "";
 
-  const iniciarBusquedaPelicula = async (evento) => {
+  const iniciarBusquedaPelicula = (evento) => {
+      
       evento.preventDefault()
       console.log(searchValue)
+    
       
+      const options = {
+        method: 'GET',
+        url: `https://api.themoviedb.org/3/search/movie?query=${searchValue}&language=es-ES`,
+        headers: {
+          accept: 'application/json',
+          Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1YjExZjI0MWYzNzRjNzFhMjViMWRkODY4M2RlNzJmMSIsIm5iZiI6MTc0MTM0NTQ3Ny40MjcsInN1YiI6IjY3Y2FkMmM1ZGJhMTQ5MTYwNjJiNTI3YSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.QLOiltC4xZXMGLdLGztTsLldFMP-av2I3QW6WpC7uRM'
+        }
+      };
+      
+      axios
+        .request(options)
+        .then((response) => {
+          //console.log(response.data)
+          setListMoviesAPI(response.data.results)
+        
+          
+
+        })
+        .catch(err => console.error(err));
+
 
   }
 
 
+
+  console.log(listMoviesAPI)
+  
+
+
   return (
+
+    <> 
     <div>
 
     <h2>Barra de Búsqueda</h2>
@@ -24,6 +57,41 @@ function SearchBarHome() {
 
     </form>
     </div>
+
+    <div>
+        
+        { listMoviesAPI !== null 
+        
+        ? listMoviesAPI.map((cadaPelicula, i) => {
+          imageURL = baseURLImage + cadaPelicula.poster_path
+          //console.log(imageURL)
+          return (
+            < div key={i}>
+              <h2>{cadaPelicula.title}</h2>
+              <Link to = {`/addMovie/${cadaPelicula.id}`}>    
+                <img src={imageURL} alt="Poster-pelicula" />
+              </Link>
+              
+
+            </div>
+              
+          )
+        })
+        : <h2>Introduce la película que quieres buscar</h2>  /* Mensaje de bienvenida cuando todavía no hay data */
+        
+        }
+
+        {/* En caso de no encontrar ninguna data que coincida */}
+        {listMoviesAPI !== null  && listMoviesAPI.length === 0 ? <h2>No se encontró data ninguna</h2> : null}
+      
+      
+
+    </div>
+
+
+
+
+    </>
   )
 }
 

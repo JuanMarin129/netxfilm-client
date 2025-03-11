@@ -7,7 +7,7 @@ import axios from 'axios'
 
 function MovieDetails() {
 
-//const [movieDB, setMovieDB] = useState(null)
+const [movieDB, setMovieDB] = useState(null)
 const [datoMovieAPI, setDatoMovieAPI] = useState(null)
 const parametrosDinamicos = useParams();
 console.log(parametrosDinamicos)
@@ -17,18 +17,17 @@ let imageURL = "";
 
 
 useEffect(() => {
-/*
+
   axios.get(`http://localhost:5005/watchMovies/${parametrosDinamicos.movieID}`)
   .then((response) => {
     console.log(response.data)
     setMovieDB(response.data)
-    console.log(movieDB)
   })
   .catch((error) => {
     console.log(error)
   })
 
-*/
+
     const options = {
       method: 'GET',
       url: `https://api.themoviedb.org/3/movie/${parametrosDinamicos.movieIdAPI}?language=es-ES?&append_to_response=credits`,
@@ -50,7 +49,7 @@ useEffect(() => {
 
 },[])
 
-if (datoMovieAPI === null) {
+if (datoMovieAPI === null || movieDB === null) {
   return (
       <h3>Espere por favor...cargando la Data de la API de TMDB</h3>
   )
@@ -90,11 +89,14 @@ imageURL = baseURLImage + datoMovieAPI.poster_path
           <p>Duración: {datoMovieAPI.runtime} minutos</p>
           <p>Fecha de estreno: {datoMovieAPI.release_date}</p>
           <p>{datoMovieAPI.overview}</p>
+          <p>Rating: {movieDB.rating}</p>
+          <p>{movieDB.watch === true ? "✅" : "❌"}</p>
+
       </div>
 
       <div>
-        <button>Añadir a la lista de películas vistas</button>
-        <button>Añadir a la lista de películas pendientes</button>
+        <button>Editar película</button>
+        <button>Eliminar película</button>
 
 
       </div>

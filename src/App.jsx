@@ -5,6 +5,7 @@ import MovieDetails from './pages/MovieDetails';
 import { Route, Routes } from 'react-router-dom';
 import NavBarHome from './components/NavBarHome';
 import BuscarPeliculas from './pages/BuscarPeliculas';
+import AddMovie from './pages/AddMovie';
 
 function App() {
  
@@ -16,9 +17,11 @@ function App() {
 
        <Routes >
 
+       <Route path="/" element={<HomePage />} />
+
         <Route path="/buscar_peliculas" element= {<BuscarPeliculas />} />
 
-        <Route path="/" element={<HomePage />} />
+        <Route path="/addMovie/:movieIdAPI" element= {<AddMovie />}    />
         
         <Route path ="/movieDetails/:movieID/:movieIdAPI" element={<MovieDetails />} />
 
