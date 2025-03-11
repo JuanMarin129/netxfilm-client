@@ -6,29 +6,29 @@ import axios from "axios";
 function HomePage() {
 
     const [listMovies, setListMovies] = useState(null);
-    const [pelisVistas, setPelisVistas] = useState(false);
+    const [isWatched, setIsWatched] = useState(false);
   
   useEffect(() => {
 
-    axios.get(`http://localhost:5005/watchMovies?watch=${pelisVistas}`)
+    axios.get(`http://localhost:5005/watchMovies?watch=${isWatched}`)
     .then((response) => {
-        //console.log(response.data)
+        console.log(response.data)
         setListMovies(response.data)
     })
     .catch((error) => {
         console.log(error)
     })
 
-  },[])
+  },[isWatched])
 
   const mostrarPeliculasPendientes = () => {
-        setPelisVistas(false);
-        console.log(pelisVistas)
+     setIsWatched(false);
+        //console.log(isWatched)
     }
 
   const mostrarPeliculasVistas = () => {
-        setPelisVistas(true);
-        console.log(pelisVistas)
+    setIsWatched(true);
+        //console.log(isWatched)
     }
   
 
@@ -39,7 +39,7 @@ function HomePage() {
         )
     }
   
-    console.log(listMovies);
+    //console.log(listMovies);
 
     return (
     <div>
@@ -53,9 +53,11 @@ function HomePage() {
 
 
         {listMovies.map((cadaMovie, index) => {
+            console.log(cadaMovie)
             return ( <MovieCard 
              key={index}
              cadaMovie={cadaMovie}
+             pelisVistas={isWatched}
              />
             )
      

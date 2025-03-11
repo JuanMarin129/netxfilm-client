@@ -6,6 +6,7 @@ import { Route, Routes } from 'react-router-dom';
 import NavBarHome from './components/NavBarHome';
 import BuscarPeliculas from './pages/BuscarPeliculas';
 import AddMovie from './pages/AddMovie';
+import EditMovie from './pages/EditMovie';
 
 function App() {
  
@@ -24,6 +25,8 @@ function App() {
         <Route path="/addMovie/:movieIdAPI" element= {<AddMovie />}    />
         
         <Route path ="/movieDetails/:movieID/:movieIdAPI" element={<MovieDetails />} />
+
+        <Route path ="/editMovie/:movieID/:movieIdAPI" element={<EditMovie />}   />
 
        </Routes>
 

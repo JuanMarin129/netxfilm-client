@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 
 
 
@@ -95,7 +96,10 @@ imageURL = baseURLImage + datoMovieAPI.poster_path
       </div>
 
       <div>
-        <button>Editar película</button>
+
+        <Link to={`/editMovie/${parametrosDinamicos.movieID}/${parametrosDinamicos.movieIdAPI}`}   > 
+          <button>Editar película</button>
+        </Link>
         <button>Eliminar película</button>
 
 

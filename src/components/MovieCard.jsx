@@ -7,6 +7,9 @@ function MovieCard(props) {
     const [datosMovieAPI, setDatosMovieAPI] = useState(null)
     const baseURLImage = "http://image.tmdb.org/t/p/w342"
     let imageURL;
+
+    //console.log("Estás en MovieCard y esto es el props de movieIdAPI")
+    //console.log(props.cadaMovie.movieIdAPI)
     
     useEffect(() => {
 
@@ -27,7 +30,7 @@ function MovieCard(props) {
             ))
             .catch(err => console.error(err));
 
-    },[])
+    },[props.pelisVistas])
 
     if(datosMovieAPI === null) {
         return (
@@ -38,7 +41,7 @@ function MovieCard(props) {
     // Asignamos a la base URL de la imagen y le añadimos el path que nos devuelve la data. Así tendremos una URL válida para mostrar el poster
     imageURL = baseURLImage + datosMovieAPI.poster_path;
 
-    
+
     //console.log("Esto es datosMovieAPI")
     //console.log(datosMovieAPI)
 
