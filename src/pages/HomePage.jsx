@@ -12,7 +12,7 @@ function HomePage() {
 
     axios.get(`http://localhost:5005/watchMovies?watch=${isWatched}`)
     .then((response) => {
-        console.log(response.data)
+        //console.log(response.data)
         setListMovies(response.data)
     })
     .catch((error) => {
@@ -53,11 +53,10 @@ function HomePage() {
 
 
         {listMovies.map((cadaMovie, index) => {
-            console.log(cadaMovie)
+            //console.log(cadaMovie)
             return ( <MovieCard 
              key={index}
              cadaMovie={cadaMovie}
-             pelisVistas={isWatched}
              />
             )
      

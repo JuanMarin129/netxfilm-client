@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 
 function AddMovie() {
@@ -9,6 +9,7 @@ function AddMovie() {
     const baseURLImage = "http://image.tmdb.org/t/p/w342"
     let imageURL;
     const parametrosDinamicos = useParams()
+    const navigate = useNavigate();
 
     //console.log(parametrosDinamicos)
 
@@ -42,8 +43,12 @@ function AddMovie() {
             const response = await axios.post("http://localhost:5005/watchMovies", {
                 rating: null,
                 watch: true,
+                title: datoMovieAPI.title,
+                imagen: imageURL,
                 movieIdAPI: datoMovieAPI.id
             })
+
+            navigate("/")
             
         } catch (error) {
             console.log(error)
@@ -61,8 +66,12 @@ function AddMovie() {
             const response = await axios.post("http://localhost:5005/watchMovies", {
                 rating: null,
                 watch: false,
+                title: datoMovieAPI.title,
+                imagen: imageURL,
                 movieIdAPI: datoMovieAPI.id
             })
+
+            navigate("/")
             
         } catch (error) {
             console.log(error)

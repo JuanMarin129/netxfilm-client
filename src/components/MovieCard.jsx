@@ -1,16 +1,15 @@
 import React, { useEffect, useState } from 'react'
-import axios from 'axios'
 import { Link } from "react-router-dom";
 
 function MovieCard(props) {
 
-    const [datosMovieAPI, setDatosMovieAPI] = useState(null)
-    const baseURLImage = "http://image.tmdb.org/t/p/w342"
-    let imageURL;
+    //const [datosMovieAPI, setDatosMovieAPI] = useState(null)
+    //const baseURLImage = "http://image.tmdb.org/t/p/w342"
+    //let imageURL;
 
     //console.log("Estás en MovieCard y esto es el props de movieIdAPI")
-    //console.log(props.cadaMovie.movieIdAPI)
-    
+    //console.log(props.cadaMovie)
+    /*
     useEffect(() => {
 
         const options = {
@@ -37,9 +36,10 @@ function MovieCard(props) {
             <h3>Espere por favor...cargando la Data de la API de TMDB</h3>
         )
     }
+        */
 
     // Asignamos a la base URL de la imagen y le añadimos el path que nos devuelve la data. Así tendremos una URL válida para mostrar el poster
-    imageURL = baseURLImage + datosMovieAPI.poster_path;
+    // imageURL = baseURLImage + datosMovieAPI.poster_path;
 
 
     //console.log("Esto es datosMovieAPI")
@@ -51,9 +51,9 @@ function MovieCard(props) {
   return (
     <div>
 
-        <h2>{datosMovieAPI.title}</h2>
+        <h2>{props.cadaMovie.title}</h2>
         <Link to = {`/movieDetails/${props.cadaMovie.id}/${props.cadaMovie.movieIdAPI}`} >
-            <img src={imageURL} alt="poster-pelicula" />
+            <img src={props.cadaMovie.imagen} alt="poster-pelicula" />
         </Link>
 
 
