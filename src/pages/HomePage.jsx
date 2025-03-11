@@ -38,6 +38,7 @@ function HomePage() {
         <div>
             <button>Películas pendientes</button>
             <button>Películas ya vistas</button>
+            
         </div>
 
 
