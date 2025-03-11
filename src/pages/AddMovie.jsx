@@ -17,7 +17,7 @@ function AddMovie() {
 
         const options = {
             method: 'GET',
-            url: `https://api.themoviedb.org/3/movie/${parametrosDinamicos.movieIdAPI}?language=es-ES`,
+            url: `${import.meta.env.VITE_API_URL}movie/${parametrosDinamicos.movieIdAPI}?language=es-ES`,
             headers: {
               accept: 'application/json',
               Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1YjExZjI0MWYzNzRjNzFhMjViMWRkODY4M2RlNzJmMSIsIm5iZiI6MTc0MTM0NTQ3Ny40MjcsInN1YiI6IjY3Y2FkMmM1ZGJhMTQ5MTYwNjJiNTI3YSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.QLOiltC4xZXMGLdLGztTsLldFMP-av2I3QW6WpC7uRM'
@@ -40,7 +40,7 @@ function AddMovie() {
 
         try {
 
-            const response = await axios.post("http://localhost:5005/watchMovies", {
+            const response = await axios.post(`${import.meta.env.VITE_SERVER_URL}`, {
                 rating: null,
                 watch: true,
                 title: datoMovieAPI.title,
@@ -63,7 +63,7 @@ function AddMovie() {
 
         try {
 
-            const response = await axios.post("http://localhost:5005/watchMovies", {
+            const response = await axios.post(`${import.meta.env.VITE_SERVER_URL}`, {
                 rating: null,
                 watch: false,
                 title: datoMovieAPI.title,

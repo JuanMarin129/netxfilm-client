@@ -18,7 +18,7 @@ let imageURL = "";
 
 useEffect(() => {
 
-    axios.get(`http://localhost:5005/watchMovies/${parametrosDinamicos.movieID}`)
+    axios.get(`${import.meta.env.VITE_SERVER_URL}${parametrosDinamicos.movieID}`)
     .then((response) => {
       console.log(response.data)
       setMovieDB(response.data)
@@ -30,7 +30,7 @@ useEffect(() => {
   
       const options = {
         method: 'GET',
-        url: `https://api.themoviedb.org/3/movie/${parametrosDinamicos.movieIdAPI}?language=es-ES?&append_to_response=credits`,
+        url: `${import.meta.env.VITE_API_URL}movie/${parametrosDinamicos.movieIdAPI}?language=es-ES?&append_to_response=credits`,
         headers: {
           accept: 'application/json',
           Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1YjExZjI0MWYzNzRjNzFhMjViMWRkODY4M2RlNzJmMSIsIm5iZiI6MTc0MTM0NTQ3Ny40MjcsInN1YiI6IjY3Y2FkMmM1ZGJhMTQ5MTYwNjJiNTI3YSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.QLOiltC4xZXMGLdLGztTsLldFMP-av2I3QW6WpC7uRM'
@@ -55,7 +55,7 @@ useEffect(() => {
 
 
     try {
-        await axios.patch(`http://localhost:5005/watchMovies/${parametrosDinamicos.movieID}`, {
+        await axios.patch(`${import.meta.env.VITE_SERVER_URL}${parametrosDinamicos.movieID}`, {
             rating: rating,
             watch: watch
         })
