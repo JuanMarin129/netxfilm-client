@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-import { Link, useNavigate, useParams } from "react-router-dom";
-
+import { useNavigate, useParams } from "react-router-dom";
+import Button from 'react-bootstrap/Button';
 
 function AddMovie() {
 
@@ -100,11 +100,11 @@ function AddMovie() {
     </div>
 
     <div>
-      <button onClick={addPeliculaListaVista}>Añadir a la lista de películas vistas</button>
-      <button onClick={addPeliculaListaPendiente}>Añadir a la lista de películas pendientes</button>
+      <Button variant="success" onClick={addPeliculaListaVista}>Añadir a la lista de películas vistas</Button>
+      <Button variant="danger" onClick={addPeliculaListaPendiente}>Añadir a la lista de películas pendientes</Button>
     </div>
     <div>
-        <button onClick={volverABusqueda}>Volver a la búsqueda</button>
+        <Button onClick={volverABusqueda}>Volver a la búsqueda</Button>
     </div>
 
   </>

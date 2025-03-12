@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import axios from "axios";
 import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import InputGroup from 'react-bootstrap/InputGroup';
 
 function SearchBarHome() {
   
@@ -49,11 +51,13 @@ function SearchBarHome() {
 
     <> 
     <div>
-    <form onSubmit={iniciarBusquedaPelicula}> 
-      <input type="text" onChange={(e) => setSearchValue(e.target.value)} />
-      <button type="submit">Iniciar Búsqueda</button>
-
-    </form>
+    <Form onSubmit={iniciarBusquedaPelicula}> 
+      <InputGroup className='mb-3'>
+        <Form.Control type="text" onChange={(e) => setSearchValue(e.target.value)} />
+        <Button variant="outline-secondary" type="submit">Iniciar Búsqueda</Button>
+      </InputGroup>
+      
+    </Form>
     </div>
 
     <div>

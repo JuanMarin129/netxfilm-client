@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from "react-router-dom";
+import Card from 'react-bootstrap/Card';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
 
 function MovieCard(props) {
 
@@ -49,16 +52,14 @@ function MovieCard(props) {
     // let movieIdForDetails = datosMovieAPI.id.toString()
 
   return (
-    <div>
-
-        <h2>{props.cadaMovie.title}</h2>
-        <Link to = {`/movieDetails/${props.cadaMovie.id}/${props.cadaMovie.movieIdAPI}`} >
-            <img src={props.cadaMovie.imagen} alt="poster-pelicula" />
-        </Link>
-
-
-
-    </div>
+    <Card style={{ width: '18rem', margin: "25px"}}>
+      <Card.Body> 
+          <Card.Title>{props.cadaMovie.title}</Card.Title>
+      </Card.Body> 
+      <Link to = {`/movieDetails/${props.cadaMovie.id}/${props.cadaMovie.movieIdAPI}`} >
+          <Card.Img variant="top" src={props.cadaMovie.imagen} alt="poster-pelicula" />
+      </Link> 
+    </Card>
   )
 }
 

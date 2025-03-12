@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import NavBarHome from '../components/NavBar'
 import MovieCard from '../components/MovieCard'
 import axios from "axios";
 
@@ -51,16 +50,17 @@ function HomePage() {
 
         </div>
 
-
-        {listMovies.map((cadaMovie, index) => {
-            //console.log(cadaMovie)
-            return ( <MovieCard 
-             key={index}
-             cadaMovie={cadaMovie}
-             />
-            )
-     
-        })}
+        <div className="d-flex justify-content-center align-content-center flex-wrap" style={{marginTop: "25px"}}>
+            {listMovies.map((cadaMovie, index) => {
+                //console.log(cadaMovie)
+                return ( <MovieCard 
+                key={index}
+                cadaMovie={cadaMovie}
+                />
+                )
+        
+            })}
+        </div>
 
     </div>
   )
