@@ -61,7 +61,7 @@ function SearchBarHome() {
     </Form>
     </div>
 
-    <div className="d-flex flex-column justify-self-center">
+    <div className="d-flex flex-wrap justify-content-center">
         
         { listMoviesAPI !== null 
         
