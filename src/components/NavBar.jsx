@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import SideBarHome from './SIdeBarHome'
+import SideBar from './SideBar'
 
 function NavBarHome() {
   return (
@@ -12,7 +12,7 @@ function NavBarHome() {
         <Link to="/">
           <img src="src\images\nextfilm_logo_01.png" alt="logo-01" />
         </Link>  
-        <SideBarHome />
+        <SideBar />
       </div>
 
     

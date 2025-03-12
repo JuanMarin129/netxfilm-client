@@ -1,5 +1,5 @@
 import React from 'react'
-import SearchBarHome from '../components/SearchBarHome'
+import SearchBar from '../components/SearchBar'
 
 function BuscarPeliculas() {
   return (
@@ -9,7 +9,7 @@ function BuscarPeliculas() {
 
         <div>
 
-           <SearchBarHome />
+           <SearchBar />
 
         </div>
     
