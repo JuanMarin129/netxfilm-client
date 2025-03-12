@@ -3,7 +3,7 @@ import './App.css'
 import HomePage from './pages/HomePage'
 import MovieDetails from './pages/MovieDetails';
 import { Route, Routes } from 'react-router-dom';
-import NavBarHome from './components/NavBarHome';
+import NavBarHome from './components/NavBar';
 import BuscarPeliculas from './pages/BuscarPeliculas';
 import AddMovie from './pages/AddMovie';
 import EditMovie from './pages/EditMovie';
