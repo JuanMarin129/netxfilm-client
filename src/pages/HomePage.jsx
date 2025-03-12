@@ -10,7 +10,7 @@ function HomePage() {
   
   useEffect(() => {
 
-    axios.get(`${import.meta.env.VITE_SERVER_URL}?watch=${isWatched}`)
+    axios.get(`${import.meta.env.VITE_SERVER_URL}/watchMovies?watch=${isWatched}`)
     .then((response) => {
         //console.log(response.data)
         setListMovies(response.data)

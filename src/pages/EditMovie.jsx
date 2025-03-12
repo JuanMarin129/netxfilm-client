@@ -18,7 +18,7 @@ let imageURL = "";
 
 useEffect(() => {
 
-    axios.get(`${import.meta.env.VITE_SERVER_URL}${parametrosDinamicos.movieID}`)
+    axios.get(`${import.meta.env.VITE_SERVER_URL}/watchMovies/${parametrosDinamicos.movieID}`)
     .then((response) => {
       console.log(response.data)
       setMovieDB(response.data)
@@ -55,7 +55,7 @@ useEffect(() => {
 
 
     try {
-        await axios.patch(`${import.meta.env.VITE_SERVER_URL}${parametrosDinamicos.movieID}`, {
+        await axios.patch(`${import.meta.env.VITE_SERVER_URL}/watchMovies/${parametrosDinamicos.movieID}`, {
             rating: rating,
             watch: watch
         })

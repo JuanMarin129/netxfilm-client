@@ -40,7 +40,7 @@ function AddMovie() {
         evento.preventDefault()
         try {
 
-            const response = await axios.post(`${import.meta.env.VITE_SERVER_URL}`, {
+            const response = await axios.post(`${import.meta.env.VITE_SERVER_URL}/watchMovies`, {
                 rating: null,
                 watch: true,
                 title: datoMovieAPI.title,
@@ -58,7 +58,7 @@ function AddMovie() {
         evento.preventDefault()
         try {
 
-            const response = await axios.post(`${import.meta.env.VITE_SERVER_URL}`, {
+            const response = await axios.post(`${import.meta.env.VITE_SERVER_URL}/watchMovies`, {
                 rating: null,
                 watch: false,
                 title: datoMovieAPI.title,

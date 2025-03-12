@@ -19,7 +19,7 @@ let imageURL = "";
 
 useEffect(() => {
 
-  axios.get(`${import.meta.env.VITE_SERVER_URL}${parametrosDinamicos.movieID}`)
+  axios.get(`${import.meta.env.VITE_SERVER_URL}/watchMovies/${parametrosDinamicos.movieID}`)
   .then((response) => {
     console.log(response.data)
     setMovieDB(response.data)
@@ -55,7 +55,7 @@ const eliminarPelicula = async (evento) => {
   evento.preventDefault()
 
   try {
-      await axios.delete(`${import.meta.env.VITE_SERVER_URL}${parametrosDinamicos.movieID}`)
+      await axios.delete(`${import.meta.env.VITE_SERVER_URL}/watchMovies/${parametrosDinamicos.movieID}`)
 
       navigate("/")
     
