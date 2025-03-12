@@ -12,8 +12,7 @@ const [movieDB, setMovieDB] = useState(null)
 const [datoMovieAPI, setDatoMovieAPI] = useState(null)
 const parametrosDinamicos = useParams();
 const navigate = useNavigate();
-const baseURLImage = "http://image.tmdb.org/t/p/w342"
-let imageURL = "";
+const baseURLImage = `${import.meta.env.VITE_BASEIMAGEN_URL_API}`
 
 
 
@@ -31,7 +30,7 @@ useEffect(() => {
 
     const options = {
       method: 'GET',
-      url: `${import.meta.env.VITE_API_URL}movie/${parametrosDinamicos.movieIdAPI}?language=es-ES?&append_to_response=credits`,
+      url: `${import.meta.env.VITE_API_URL}/movie/${parametrosDinamicos.movieIdAPI}?language=es-ES?&append_to_response=credits`,
       headers: {
         accept: 'application/json',
         Authorization: `${import.meta.env.VITE_TOKEN_API}`
@@ -96,8 +95,7 @@ console.log(movieDB.movieIdAPI)
 //console.log(datoMovieAPI.poster_path);
 
 
-// Asignamos a la base URL de la imagen y le añadimos el path que nos devuelve la data. Así tendremos una URL válida para mostrar el poster
-imageURL = baseURLImage + datoMovieAPI.poster_path
+
 
   return (
 
@@ -107,7 +105,7 @@ imageURL = baseURLImage + datoMovieAPI.poster_path
 
 
           <h2>{datoMovieAPI.title}</h2>
-          <img src={imageURL} alt="poster-pelicula" />
+          <img src={baseURLImage + datoMovieAPI.poster_path} alt="poster-pelicula" />
           <p>Duración: {datoMovieAPI.runtime} minutos</p>
           <p>Fecha de estreno: {datoMovieAPI.release_date}</p>
           <p>{datoMovieAPI.overview}</p>

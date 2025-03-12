@@ -7,7 +7,7 @@ function SearchBarHome() {
   
   const [searchValue, setSearchValue] = useState("")
   const [listMoviesAPI, setListMoviesAPI] = useState(null);
-  const baseURLImage = "http://image.tmdb.org/t/p/w342"
+  const baseURLImage = `${import.meta.env.VITE_BASEIMAGEN_URL_API}`
   let imageURL = "";
 
   const iniciarBusquedaPelicula = (evento) => {
@@ -18,7 +18,7 @@ function SearchBarHome() {
       
       const options = {
         method: 'GET',
-        url: `${import.meta.env.VITE_API_URL}search/movie?query=${searchValue}&language=es-ES`,
+        url: `${import.meta.env.VITE_API_URL}/search/movie?query=${searchValue}&language=es-ES`,
         headers: {
           accept: 'application/json',
           Authorization: `${import.meta.env.VITE_TOKEN_API}`

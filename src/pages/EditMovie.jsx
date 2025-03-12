@@ -11,7 +11,7 @@ const [watch, setWatch] = useState(false)
 const parametrosDinamicos = useParams()
 const navigate = useNavigate()
 console.log(parametrosDinamicos)
-const baseURLImage = "http://image.tmdb.org/t/p/w342"
+const baseURLImage = `${import.meta.env.VITE_BASEIMAGEN_URL_API}`
 let imageURL = "";
 
 
@@ -30,7 +30,7 @@ useEffect(() => {
   
       const options = {
         method: 'GET',
-        url: `${import.meta.env.VITE_API_URL}movie/${parametrosDinamicos.movieIdAPI}?language=es-ES?&append_to_response=credits`,
+        url: `${import.meta.env.VITE_API_URL}/movie/${parametrosDinamicos.movieIdAPI}?language=es-ES?&append_to_response=credits`,
         headers: {
           accept: 'application/json',
           Authorization: `${import.meta.env.VITE_TOKEN_API}`

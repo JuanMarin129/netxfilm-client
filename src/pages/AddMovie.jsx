@@ -6,7 +6,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 function AddMovie() {
 
     const [datoMovieAPI, setDatoMovieAPI] = useState(null)
-    const baseURLImage = "http://image.tmdb.org/t/p/w342"
+    const baseURLImage = `${import.meta.env.VITE_BASEIMAGEN_URL_API}`
     let imageURL;
     const parametrosDinamicos = useParams()
     const navigate = useNavigate();
@@ -17,7 +17,7 @@ function AddMovie() {
 
         const options = {
             method: 'GET',
-            url: `${import.meta.env.VITE_API_URL}movie/${parametrosDinamicos.movieIdAPI}?language=es-ES`,
+            url: `${import.meta.env.VITE_API_URL}/movie/${parametrosDinamicos.movieIdAPI}?language=es-ES`,
             headers: {
               accept: 'application/json',
               Authorization: `${import.meta.env.VITE_TOKEN_API}`
