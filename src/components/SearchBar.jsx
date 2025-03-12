@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
+import Card from 'react-bootstrap/Card';
 
 function SearchBarHome() {
   
@@ -60,7 +61,7 @@ function SearchBarHome() {
     </Form>
     </div>
 
-    <div>
+    <div className="d-flex flex-column justify-self-center">
         
         { listMoviesAPI !== null 
         
@@ -68,14 +69,14 @@ function SearchBarHome() {
           imageURL = baseURLImage + cadaPelicula.poster_path
           //console.log(imageURL)
           return (
-            < div key={i}>
-              <h2>{cadaPelicula.title}</h2>
+            < Card key={i} style={{ width: '18rem', margin: "25px"}}>
+              <Card.Body>
+                <Card.Text>{cadaPelicula.title}</Card.Text>
+              </Card.Body>
               <Link to = {`/addMovie/${cadaPelicula.id}`}>    
-                <img src={imageURL} alt="Poster-pelicula" />
+                <Card.Img src={imageURL} alt="Poster-pelicula" />
               </Link>
-              
-
-            </div>
+            </Card>
               
           )
         })
