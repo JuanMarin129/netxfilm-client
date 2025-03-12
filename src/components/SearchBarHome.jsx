@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import axios from "axios";
 import { Link } from 'react-router-dom';
+import Button from 'react-bootstrap/Button';
 
 function SearchBarHome() {
   
@@ -48,9 +49,6 @@ function SearchBarHome() {
 
     <> 
     <div>
-
-    <h2>Barra de Búsqueda</h2>
-
     <form onSubmit={iniciarBusquedaPelicula}> 
       <input type="text" onChange={(e) => setSearchValue(e.target.value)} />
       <button type="submit">Iniciar Búsqueda</button>
@@ -77,7 +75,7 @@ function SearchBarHome() {
               
           )
         })
-        : <h2>Introduce la película que quieres buscar</h2>  /* Mensaje de bienvenida cuando todavía no hay data */
+        : <h2>Por favor, introduce la película que quieres buscar</h2>  /* Mensaje de bienvenida cuando todavía no hay data */
         
         }
 

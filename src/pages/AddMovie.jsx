@@ -34,10 +34,10 @@ function AddMovie() {
 
     },[])
 
+
+    // Añadimos la película a una lista. Depende de a cuál botón le de el usuario, lo añade con un valor "watch" distinto
     const addPeliculaListaVista = async (evento) => {
         evento.preventDefault()
-
-
         try {
 
             const response = await axios.post(`${import.meta.env.VITE_SERVER_URL}`, {
@@ -47,20 +47,15 @@ function AddMovie() {
                 imagen: imageURL,
                 movieIdAPI: datoMovieAPI.id
             })
-
             navigate("/")
             
         } catch (error) {
             console.log(error)
-            
         }
-
     }
 
     const addPeliculaListaPendiente = async (evento) => {
         evento.preventDefault()
-
-
         try {
 
             const response = await axios.post(`${import.meta.env.VITE_SERVER_URL}`, {
@@ -70,16 +65,18 @@ function AddMovie() {
                 imagen: imageURL,
                 movieIdAPI: datoMovieAPI.id
             })
-
             navigate("/")
             
         } catch (error) {
             console.log(error)
-            
         }
-
     }
 
+    const volverABusqueda = () => {
+        navigate("/buscar_peliculas")
+    }
+
+    // Claúsula de Guardia
     if(datoMovieAPI === null) {
         return (
             <h3>Espere por favor...cargando la Data de la API de TMDB</h3>
@@ -105,8 +102,9 @@ function AddMovie() {
     <div>
       <button onClick={addPeliculaListaVista}>Añadir a la lista de películas vistas</button>
       <button onClick={addPeliculaListaPendiente}>Añadir a la lista de películas pendientes</button>
-
-
+    </div>
+    <div>
+        <button onClick={volverABusqueda}>Volver a la búsqueda</button>
     </div>
 
   </>
