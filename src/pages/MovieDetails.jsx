@@ -3,7 +3,9 @@ import { useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 import Card from 'react-bootstrap/Card'
-import Spinner from 'react-bootstrap/Spinner';
+import Spinner from 'react-bootstrap/Spinner'
+import Carousel from 'react-bootstrap/Carousel'
+//import ExampleCarouselImage from 'components/ExampleCarouselImage'
 
 
 
@@ -113,15 +115,22 @@ console.log(datoMovieAPI.credits.cast);
             <p>{datoMovieAPI.overview}</p>
             <p>Rating: {movieDB.rating}</p>
             <p>{movieDB.watch === true ? "✅" : "❌"}</p>
-            {datoMovieAPI.credits.cast.map((cadaActor, i) => {
-              return (
-                <div key={i}>
-                  <p>{cadaActor.name}</p>
-                  <img src={baseURLImageProfileActors + cadaActor.profile_path} alt="foto-profile" />
-                </div>
-              )
-            })}
           </div>
+          <div className="carouselProfileCast">
+            <Carousel>
+                {datoMovieAPI.credits.cast.map((cadaActor, i) => {
+                  return (
+                      <Carousel.Item key={i}>
+                      <img src={baseURLImageProfileActors + cadaActor.profile_path} alt="foto-profile" />
+                      {/*<ExampleCarouselImage text="First slide" /> */}
+                        <Carousel.Caption>
+                          <p>{cadaActor.name}</p>
+                        </Carousel.Caption>
+                      </Carousel.Item>
+                  )
+                })}
+              </Carousel>
+            </div>
 
       </div>
        

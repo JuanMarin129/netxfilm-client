@@ -32,9 +32,9 @@ a:visited {
 
 }
 
-#btnSidebarCSS {
-  background-color: red;
-}
+/*#btnSidebarCSS {
+  
+}*/
 
 #btnSidebarCSS:hover {
   cursor: pointer;
@@ -66,6 +66,11 @@ a:visited {
 
 .movieDTCardBody p {
   padding: 10px;
+}
+
+.carouselProfileCast {
+  background-color: black;
+  margin-top: 20px;
 }
 
 /*
