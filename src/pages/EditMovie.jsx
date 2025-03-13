@@ -51,8 +51,8 @@ useEffect(() => {
 
   const realizarEdicion = async (evento) => {
     evento.preventDefault()
-    console.log("Esto es la Watch que viene de antes en la Movie Card")
-    console.log(watch)
+    //console.log("Esto es la Watch que viene de antes en la Movie Card")
+    //console.log(watch)
 
     try {
         await axios.patch(`${import.meta.env.VITE_SERVER_URL}/watchMovies/${parametrosDinamicos.movieID}`, {
@@ -110,7 +110,7 @@ useEffect(() => {
                   
 
               </fieldset>
-              <button type="submit" >Editar los datos</button>
+              <button id="btnEditDatos" type="submit" >Editar los datos</button>
           </form>
         </div>
 

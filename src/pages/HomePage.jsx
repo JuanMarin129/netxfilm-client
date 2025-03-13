@@ -38,6 +38,7 @@ function HomePage() {
             <div> 
                 <h3>Espere un minuto, por favor. Estamos trayendo a la data en este momento...</h3>
                 <Spinner animation="border" variant="danger" />
+                <img src="fondo_spinner_01.gif" alt="fondo_spinner"    />
             </div>
         )
     }
