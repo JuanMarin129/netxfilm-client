@@ -73,6 +73,12 @@ a:visited {
   margin-top: 20px;
 }
 
+.carouselProfileCast p {
+  font-size: 2rem;
+  font-weight: 800;
+  -webkit-text-stroke: 2px black;
+}
+
 /*
 #sidebar-css {
   /*background-image: url(imagen_fondo_sidebar_01.jpg);
