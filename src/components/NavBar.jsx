@@ -30,7 +30,7 @@ function NavBarHome() {
   return (
 
       <>
-      <div style={{display: "flex", alignItems: "center", justifyContent:"center"}}>
+      <div id="navBarCSS">
         <div id="btnSidebarCSS" onClick={() => cambioStateSideBar()}>
           <img width={"63vW"} height={"63vW"} src="icono_menu_01.png" alt="icono-menu" />
         </div>
