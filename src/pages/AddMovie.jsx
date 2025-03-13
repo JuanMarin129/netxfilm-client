@@ -7,7 +7,7 @@ import Spinner from 'react-bootstrap/Spinner';
 function AddMovie() {
 
     const [datoMovieAPI, setDatoMovieAPI] = useState(null)
-    const baseURLImage = `${import.meta.env.VITE_BASEIMAGEN_URL_API}`
+    const baseURLImage = "http://image.tmdb.org/t/p/original"
     let imageURL;
     const parametrosDinamicos = useParams()
     const navigate = useNavigate();

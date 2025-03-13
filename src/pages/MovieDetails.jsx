@@ -14,7 +14,8 @@ const [movieDB, setMovieDB] = useState(null)
 const [datoMovieAPI, setDatoMovieAPI] = useState(null)
 const parametrosDinamicos = useParams();
 const navigate = useNavigate();
-const baseURLImage = "http://image.tmdb.org/t/p/w342"
+const baseURLImage = "http://image.tmdb.org/t/p/original"
+const baseURLImageProfileActors = "http://image.tmdb.org/t/p/w185"
 let imageURL ="";
 
 
@@ -94,30 +95,40 @@ console.log(movieDB.movieIdAPI)
 */
 
 //console.log("Esto es datoMovieAPI de MovieDetails");
-//console.log(datoMovieAPI.poster_path);
+console.log(datoMovieAPI.credits.cast);
 
 // imageURL = baseURLImage + datoMovieAPI.poster_path
 
 
   return (
 
-    <> 
-     {/*}
-       <div>
-          <h2>{datoMovieAPI.title}</h2>
+    <div style={{display: "flex", flexDirection: "column", alignItems: "center"}}> 
+     
+       <div className="movieDTCard"> 
           <img src={baseURLImage + datoMovieAPI.poster_path} alt="poster-pelicula" />
-          <p>Duración: {datoMovieAPI.runtime} minutos</p>
-          <p>Fecha de estreno: {datoMovieAPI.release_date}</p>
-          <p>{datoMovieAPI.overview}</p>
-          <p>Rating: {movieDB.rating}</p>
-          <p>{movieDB.watch === true ? "✅" : "❌"}</p>
+          <h2>{datoMovieAPI.title}</h2>
+          <div className="movieDTCardBody"> 
+            <p>Duración: {datoMovieAPI.runtime} minutos</p>
+            <p>Fecha de estreno: {datoMovieAPI.release_date}</p>  
+            <p>{datoMovieAPI.overview}</p>
+            <p>Rating: {movieDB.rating}</p>
+            <p>{movieDB.watch === true ? "✅" : "❌"}</p>
+            {datoMovieAPI.credits.cast.map((cadaActor, i) => {
+              return (
+                <div key={i}>
+                  <p>{cadaActor.name}</p>
+                  <img src={baseURLImageProfileActors + cadaActor.profile_path} alt="foto-profile" />
+                </div>
+              )
+            })}
+          </div>
 
       </div>
-       */}
+       
 
 
 
-    
+      {/*}
       <Card style={{width: "50%", display: "flex", justifySelf: "center"}}>
           <Card.Img variant="top" src={baseURLImage + datoMovieAPI.poster_path} alt="poster-pelicula" />
           <Card.Title>{datoMovieAPI.title}</Card.Title>
@@ -130,6 +141,7 @@ console.log(movieDB.movieIdAPI)
           </Card.Body>
 
       </Card>
+        */}
      
 
       <div>
@@ -142,7 +154,7 @@ console.log(movieDB.movieIdAPI)
 
       </div>
 
-    </>
+    </div>
   )
 }
 
