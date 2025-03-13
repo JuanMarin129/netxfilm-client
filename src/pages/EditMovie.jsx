@@ -7,7 +7,7 @@ function EditMovie() {
 const [movieDB, setMovieDB] = useState(null)
 const [datoMovieAPI, setDatoMovieAPI] = useState(null)
 const [rating, setRating] = useState(0)
-const [watch, setWatch] = useState(false)
+const [watch, setWatch] = useState(null)
 const parametrosDinamicos = useParams()
 const navigate = useNavigate()
 console.log(parametrosDinamicos)
@@ -51,6 +51,8 @@ useEffect(() => {
 
   const realizarEdicion = async (evento) => {
     evento.preventDefault()
+    console.log("Esto es la Watch que viene de antes en la Movie Card")
+    console.log(watch)
 
     try {
         await axios.patch(`${import.meta.env.VITE_SERVER_URL}/watchMovies/${parametrosDinamicos.movieID}`, {
@@ -75,6 +77,11 @@ useEffect(() => {
    //console.log("Esto es Watch")
    //console.log(watch)
 
+
+   // Iniciamos el valor watch al que venía ya puesto en la ficha de la película
+   if(watch === null) {
+    setWatch(movieDB.watch)
+   }
 
     return (
     <div style={{display: "flex", flexDirection: "column", alignItems: "center"}}>

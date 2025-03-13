@@ -45,6 +45,14 @@ a:visited {
   align-items: center;
 }
 
+.enlacesSideBar {
+  color: black;
+  -webkit-text-stroke: 1px #d1f7fe;
+  text-shadow: 2px 1px 1px #fc296c;
+  font-weight: 900;
+  font-size: 2.3rem;
+}
+
 /*#btnSidebarCSS {
   
 }*/
@@ -75,10 +83,19 @@ a:visited {
   flex-wrap: wrap;
   justify-content: space-evenly;
   margin-top: 30px;
+  border-top: solid black;
 }
 
 .movieDTCardBody p {
   padding: 10px;
+}
+
+.ratingCard {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  border-bottom: solid black;
+  margin-bottom: 40px;
 }
 
 .carouselProfileCast {

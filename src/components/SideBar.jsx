@@ -7,8 +7,11 @@ function SideBarHome(props) {
 
   const sideBarCSS = {
 
-    backgroundColor: "#9C1A1A", // Rojo Oscuro #9C1A1A
+    //backgroundColor: "#9C1A1A", // Rojo Oscuro #9C1A1A
     //backgroundImage: "url:(imagen_fondo_sidebar_01.jpg)"
+    background: "url(imagen_fondo_sidebar_01.jpg) 0" ,
+    backgroundSize: "cover",
+    backgroundColor: "black 20%",
     alignItems: "center", 
     borderRadius: "10px",
     border: "solid", 
@@ -21,7 +24,7 @@ function SideBarHome(props) {
     justifyContent: "start",
     left: "200px",
     transform: props.cambioScaleY,
-    transition: "all 0.4s"
+    transition: "all 0.4s",
   }
 
   console.log("Esto es dentro de SideBar")
@@ -30,8 +33,8 @@ function SideBarHome(props) {
   return (
     <div style={sideBarCSS}>
 
-        <Link to="/buscar_peliculas"><h2 style={{color: "white"}}>Buscar Películas</h2></Link>
-        <Link to="/"><h2 style={{color: "white"}}>Películas Pendientes de Ver</h2></Link>
+        <Link to="/buscar_peliculas"><h2 className="enlacesSideBar">Buscar Películas</h2></Link>
+        <Link to="/"><h2 className="enlacesSideBar">Películas Pendientes de Ver</h2></Link>
 
     </div>
   )

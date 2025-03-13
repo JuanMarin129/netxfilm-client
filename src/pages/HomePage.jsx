@@ -41,8 +41,19 @@ function HomePage() {
             </div>
         )
     }
+
+    console.log(listMovies);
+    console.log(listMovies.length);
+
+    /*
+    if(listMovies !== null && listMovies.length === 0) {
+        return (
+            <h2>La data está vacía... ¡Rápido! Ve a buscar las pelis que más te interesen. En el icono de las palomitas tienes todo lo necesario</h2>
+        )
+    }
+        */
   
-    //console.log(listMovies);
+
 
     return (
     <div>
@@ -53,6 +64,9 @@ function HomePage() {
             <button className="btnMainGreen" onClick={mostrarPeliculasVistas}>Películas ya vistas</button>
         </div>
 
+
+        {listMovies !== null && listMovies.length === 0 ? <h2>La data está vacía... ¡Rápido! Ve a buscar las pelis que más te interesen. En el icono de las palomitas tienes todo lo necesario</h2> 
+        :  
         <div className="d-flex justify-content-center align-content-center flex-wrap" style={{marginTop: "25px"}}>
             {listMovies.map((cadaMovie, index) => {
                 //console.log(cadaMovie)
@@ -64,6 +78,7 @@ function HomePage() {
         
             })}
         </div>
+        }
 
     </div>
   )

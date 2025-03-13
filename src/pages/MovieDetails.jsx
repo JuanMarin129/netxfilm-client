@@ -110,11 +110,13 @@ console.log(datoMovieAPI.credits.cast);
           <img src={baseURLImage + datoMovieAPI.poster_path} alt="poster-pelicula" />
           <h2>{datoMovieAPI.title}</h2>
           <div className="movieDTCardBody"> 
+            <div className="ratingCard" > 
+              <p>Rating: {movieDB.rating}</p>
+              <p>{movieDB.watch === true ? "✅" : "❌"}</p>
+            </div>
             <p>Duración: {datoMovieAPI.runtime} minutos</p>
             <p>Fecha de estreno: {datoMovieAPI.release_date}</p>  
             <p>{datoMovieAPI.overview}</p>
-            <p>Rating: {movieDB.rating}</p>
-            <p>{movieDB.watch === true ? "✅" : "❌"}</p>
           </div>
           <div className="carouselProfileCast">
             <Carousel>
