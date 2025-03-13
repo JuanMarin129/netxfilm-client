@@ -3,6 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 import Card from 'react-bootstrap/Card'
+import Spinner from 'react-bootstrap/Spinner';
 
 
 
@@ -70,7 +71,10 @@ const eliminarPelicula = async (evento) => {
 
 if (datoMovieAPI === null || movieDB === null) {
   return (
-      <h3>Espere por favor...cargando la Data de la API de TMDB</h3>
+      <div>
+        <h3>Espere por favor...le estamos pidiendo la Data a las buenas gentes de TMDB</h3>
+        <Spinner animation="border" variant="danger" />
+      </div>
   )
 }
   

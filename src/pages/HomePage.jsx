@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import MovieCard from '../components/MovieCard'
 import axios from "axios";
+import Spinner from 'react-bootstrap/Spinner';
 
 function HomePage() {
 
@@ -34,7 +35,10 @@ function HomePage() {
     if(listMovies === null)
     {
         return (
-            <h3>Espere por favor...buscando data</h3>
+            <div> 
+                <h3>Espere un minuto, por favor. Estamos trayendo a la data en este momento...</h3>
+                <Spinner animation="border" variant="danger" />
+            </div>
         )
     }
   

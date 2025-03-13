@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { useNavigate, useParams } from "react-router-dom";
 import Button from 'react-bootstrap/Button';
+import Spinner from 'react-bootstrap/Spinner';
 
 function AddMovie() {
 
@@ -79,7 +80,10 @@ function AddMovie() {
     // Claúsula de Guardia
     if(datoMovieAPI === null) {
         return (
-            <h3>Espere por favor...cargando la Data de la API de TMDB</h3>
+            <div>
+                <h3>Espere por favor...estamos pidiendo la Data a las buenas gentes de TMDB</h3>
+                <Spinner animation="border" variant="danger" />
+            </div>
         )
     }
 
