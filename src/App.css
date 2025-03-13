@@ -1,6 +1,9 @@
 body {
   background-color: black;
   color: white;
+  background-image: url(fondo_web_01.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 #root {
@@ -14,5 +17,34 @@ a {
   text-decoration: none;
 }
 
+a:visited {
+  text-decoration: none;
+}
 
+a:hover {
+  text-decoration: underline;
+  color: white;
+
+}
+
+a:visited {
+  text-decoration: none;
+
+}
+
+#btnSidebarCSS {
+  background-color: red;
+}
+
+#btnSidebarCSS:hover {
+  cursor: pointer;
+}
+
+/*
+#sidebar-css {
+  /*background-image: url(imagen_fondo_sidebar_01.jpg);
+  background-color: #9C1A1A
+}
+
+*/
 

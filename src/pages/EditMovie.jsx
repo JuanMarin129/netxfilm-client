@@ -52,8 +52,6 @@ useEffect(() => {
   const realizarEdicion = async (evento) => {
     evento.preventDefault()
 
-
-
     try {
         await axios.patch(`${import.meta.env.VITE_SERVER_URL}/watchMovies/${parametrosDinamicos.movieID}`, {
             rating: rating,

@@ -52,23 +52,19 @@ useEffect(() => {
 },[])
 
 const eliminarPelicula = async (evento) => {
+  let texto = "¿Estás seguro de eliminar la película?"
+  if(confirm(texto) == true) { 
+    evento.preventDefault()
+    try {
+        await axios.delete(`${import.meta.env.VITE_SERVER_URL}/watchMovies/${parametrosDinamicos.movieID}`)
 
-  evento.preventDefault()
-
-  try {
-      await axios.delete(`${import.meta.env.VITE_SERVER_URL}/watchMovies/${parametrosDinamicos.movieID}`)
-
-      navigate("/")
+        navigate("/")
+    } 
     
-  } 
-  
-  catch (error) {
-    console.log(error)
-    
+    catch (error) {
+      console.log(error)
+    }
   }
-
-
-
 }
 
 
