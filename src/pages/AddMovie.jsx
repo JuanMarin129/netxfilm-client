@@ -105,9 +105,9 @@ function AddMovie() {
         </div>
     </div>
 
-    <div>
-      <Button variant="success" onClick={addPeliculaListaVista}>Añadir a la lista de películas vistas</Button>
-      <Button variant="danger" onClick={addPeliculaListaPendiente}>Añadir a la lista de películas pendientes</Button>
+    <div style={{display: "flex", justifyContent:"space-beetwen", gap:"40px", margin: "10px"}}>
+      <button className="btnAddGreen" onClick={addPeliculaListaVista}>Añadir a la lista de películas vistas</button>
+      <button className="btnAddRed" onClick={addPeliculaListaPendiente}>Añadir a la lista de películas pendientes</button>
     </div>
     <div>
         <Button onClick={volverABusqueda}>Volver a la búsqueda</Button>

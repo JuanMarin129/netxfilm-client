@@ -51,7 +51,6 @@ function HomePage() {
         <div style={{display: "flex", justifyContent: "space-around"}}>
             <button className="btnMainRed" onClick={mostrarPeliculasPendientes}>Películas pendientes</button>
             <button className="btnMainGreen" onClick={mostrarPeliculasVistas}>Películas ya vistas</button>
-
         </div>
 
         <div className="d-flex justify-content-center align-content-center flex-wrap" style={{marginTop: "25px"}}>

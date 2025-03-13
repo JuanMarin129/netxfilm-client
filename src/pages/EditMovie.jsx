@@ -11,7 +11,7 @@ const [watch, setWatch] = useState(false)
 const parametrosDinamicos = useParams()
 const navigate = useNavigate()
 console.log(parametrosDinamicos)
-const baseURLImage = `${import.meta.env.VITE_BASEIMAGEN_URL_API}`
+const baseURLImage = "http://image.tmdb.org/t/p/original"
 let imageURL = "";
 
 
@@ -77,29 +77,35 @@ useEffect(() => {
 
 
     return (
-    <div>
+    <div style={{display: "flex", flexDirection: "column", alignItems: "center"}}>
+        <div className="movieDTCard"> 
+          <img src={imageURL} alt="poster-peli" />
+          <h2>{datoMovieAPI.title}</h2>
 
-        <h1>EDITAR PELI</h1>
-        <h2>{datoMovieAPI.title}</h2>
-        <img src={imageURL} alt="poster-peli" />
-        <form onSubmit={realizarEdicion}>
-            <label>Rating:</label>
-            <input type="number" name="rating" value={rating} onChange={(e) => setRating(parseInt(e.target.value))}/>
+          {/* Formulario para introducir los datos a editar */}
+          <form onSubmit={realizarEdicion}>
+              <div id="formRating"> 
+                <label>Rating:</label>
+                <input type="number" name="rating" value={rating} onChange={(e) => setRating(parseInt(e.target.value))}/> 
+                {/* El parseInt es para pasarlo a número. El valor de onChange lo cambia a string y nosotros queremos que sea un type number*/}
+              </div>
 
-            <fieldset>
-                <legend>Selecciona si has visto la película o no la has visto:</legend>
-                <div>
-                    <input type="radio" name="watch" value={false} onChange={(e) => setWatch(false)} />
-                    <label>No la he visto</label>
+              <fieldset style={{display: "flex", flexWrap: "wrap", justifyContent: "space-around"}}>
+                  <legend>Selecciona si has visto la película o no la has visto:</legend>
+                  <div className="formEditMovie">
+                      <input type="radio" name="watch" value={false} onChange={(e) => setWatch(false)} />
+                      <label>No la he visto</label>
+                  </div>
+                  <div className="formEditMovie"> 
+                      <input type="radio" name="watch" value={true} onChange={(e) => setWatch(true)} />
+                      <label>Sí la he visto</label>
+                 </div>
+                  
 
-                    <input type="radio" name="watch" value={true} onChange={(e) => setWatch(true)}/>
-                    <label>Sí la he visto</label>
-                </div>
-
-            </fieldset>
-            <button type="submit" >Editar los datos</button>
-        </form>
-        
+              </fieldset>
+              <button type="submit" >Editar los datos</button>
+          </form>
+        </div>
 
     </div>
   )
