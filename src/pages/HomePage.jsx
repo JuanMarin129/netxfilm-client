@@ -48,9 +48,9 @@ function HomePage() {
     <div>
         
 
-        <div>
-            <button onClick={mostrarPeliculasPendientes}>Películas pendientes</button>
-            <button onClick={mostrarPeliculasVistas}>Películas ya vistas</button>
+        <div style={{display: "flex", justifyContent: "space-around"}}>
+            <button className="btnMainRed" onClick={mostrarPeliculasPendientes}>Películas pendientes</button>
+            <button className="btnMainGreen" onClick={mostrarPeliculasVistas}>Películas ya vistas</button>
 
         </div>
 
