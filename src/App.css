@@ -375,6 +375,22 @@ a:visited {
     flex-direction: row;
     justify-content: space-around;
   }
+
+  .movieDTCard {
+    width: 60%;
+  }
+
+  #movieDTCardButton {
+    flex-direction: row;
+    align-items: center;
+    margin: 0;
+    align-self: normal;
+
+  }
+
+  #btnEdit {
+    margin-bottom: 0px;
+  }
 }
 
 /*
