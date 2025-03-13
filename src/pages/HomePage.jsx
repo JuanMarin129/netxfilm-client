@@ -74,6 +74,7 @@ function HomePage() {
                 key={index}
                 cadaMovie={cadaMovie}
                 />
+
                 )
         
             })}

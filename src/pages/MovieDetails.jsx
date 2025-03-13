@@ -155,7 +155,7 @@ console.log(datoMovieAPI.credits.cast);
         */}
      
 
-      <div style={{display: "flex", margin: "10px", justifyContent: "space-evenly", gap:"150px"}}>
+      <div id="movieDTCardButton">
         <Link to={`/editMovie/${parametrosDinamicos.movieID}/${parametrosDinamicos.movieIdAPI}`}   > 
           <button id="btnEdit">Editar película</button>
         </Link>
