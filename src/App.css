@@ -40,6 +40,34 @@ a:visited {
   cursor: pointer;
 }
 
+.movieDTCard {
+  background-color: #F1F1F1;
+  color: black;
+  width: 50%;
+  align-content: center;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.movieDTCard h2 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin: 30px;
+}
+
+.movieDTCardBody {
+  font-size: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin-top: 30px;
+}
+
+.movieDTCardBody p {
+  padding: 10px;
+}
+
 /*
 #sidebar-css {
   /*background-image: url(imagen_fondo_sidebar_01.jpg);

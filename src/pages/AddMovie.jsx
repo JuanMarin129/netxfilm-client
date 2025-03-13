@@ -12,6 +12,9 @@ function AddMovie() {
     const parametrosDinamicos = useParams()
     const navigate = useNavigate();
 
+
+
+
     //console.log(parametrosDinamicos)
 
     useEffect(() => {
@@ -91,16 +94,15 @@ function AddMovie() {
     imageURL = baseURLImage + datoMovieAPI.poster_path
 
   return (
-    <> 
-    <div>
-        <h3>DETALLES DE LA PELÍCULA</h3>
-
-
-        <h2>{datoMovieAPI.title}</h2>
+    <div style={{display: "flex", flexDirection: "column", alignItems: "center"}}> 
+    <div className="movieDTCard">
         <img src={imageURL} alt="poster-pelicula" />
-        <p>Duración: {datoMovieAPI.runtime} minutos</p>
-        <p>Fecha de estreno: {datoMovieAPI.release_date}</p>
-        <p>{datoMovieAPI.overview}</p>
+        <h2>{datoMovieAPI.title}</h2>
+        <div className="movieDTCardBody"> 
+            <p>Duración: {datoMovieAPI.runtime} minutos</p>
+            <p>Fecha de estreno: {datoMovieAPI.release_date}</p>
+            <p>{datoMovieAPI.overview}</p>
+        </div>
     </div>
 
     <div>
@@ -111,7 +113,7 @@ function AddMovie() {
         <Button onClick={volverABusqueda}>Volver a la búsqueda</Button>
     </div>
 
-  </>
+  </div>
   )
 }
 
