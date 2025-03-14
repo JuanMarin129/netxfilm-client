@@ -7,6 +7,7 @@ import NavBarHome from './components/NavBar';
 import BuscarPeliculas from './pages/BuscarPeliculas';
 import AddMovie from './pages/AddMovie';
 import EditMovie from './pages/EditMovie';
+import About from './pages/About';
 
 function App() {
  
@@ -27,6 +28,8 @@ function App() {
         <Route path ="/movieDetails/:movieID/:movieIdAPI" element={<MovieDetails />} />
 
         <Route path ="/editMovie/:movieID/:movieIdAPI" element={<EditMovie />}   />
+
+        <Route path="/about" element={<About />} />
 
        </Routes>
 

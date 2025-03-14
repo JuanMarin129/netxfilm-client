@@ -34,7 +34,7 @@ function SideBarHome(props) {
     <div style={sideBarCSS}>
 
         <Link to="/buscar_peliculas"><h2 className="enlacesSideBar">Buscar Películas</h2></Link>
-        <Link to="/"><h2 className="enlacesSideBar">Películas Pendientes de Ver</h2></Link>
+        <Link to="/about"><h2 className="enlacesSideBar">Créditos de la página</h2></Link>
 
     </div>
   )

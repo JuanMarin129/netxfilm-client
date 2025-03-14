@@ -31,6 +31,21 @@ a:visited {
   text-decoration: none;
 
 }
+  
+
+#AboutCSS {
+  display: flex;
+  flex-direction: column;
+}
+
+#AboutCSS h2 {
+  margin-top: 30px;
+}
+
+#AboutCSS p {
+  margin-top: 30px;
+  font-style: italic;
+}
 
 
 #navBarCSS {
@@ -400,6 +415,8 @@ a:visited {
 #formRating input {
   width: 8%;
 }
+
+
 
 /* Media Querys */
 
