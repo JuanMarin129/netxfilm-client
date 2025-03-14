@@ -78,9 +78,10 @@ useEffect(() => {
    //console.log(watch)
 
 
-   // Iniciamos el valor watch al que venía ya puesto en la ficha de la película
+   // Iniciamos los valores watch y rating al que venía ya puesto en la ficha de la película
    if(watch === null) {
     setWatch(movieDB.watch)
+    setRating(movieDB.rating)
    }
 
     return (

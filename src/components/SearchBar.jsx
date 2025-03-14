@@ -53,12 +53,12 @@ function SearchBarHome() {
     <> 
     <div>
     <Form onSubmit={iniciarBusquedaPelicula}> 
-      <InputGroup className='mb-3'>
+      <InputGroup style={{width:"60%", display:"flex", justifySelf:"anchor-center"}} className='mb-3'>
         <Form.Control type="text" onChange={(e) => setSearchValue(e.target.value)} />
         <Button variant="outline-secondary" type="submit">Iniciar Búsqueda</Button>
       </InputGroup>
-      
     </Form>
+
     </div>
 
     <div className="d-flex flex-wrap justify-content-center">

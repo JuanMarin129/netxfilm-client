@@ -8,6 +8,8 @@ import BuscarPeliculas from './pages/BuscarPeliculas';
 import AddMovie from './pages/AddMovie';
 import EditMovie from './pages/EditMovie';
 import About from './pages/About';
+import NotFound from './pages/NotFound';
+import Footer from './components/Footer';
 
 function App() {
  
@@ -31,9 +33,11 @@ function App() {
 
         <Route path="/about" element={<About />} />
 
+        <Route path="*" element={<NotFound />} />
+
        </Routes>
 
- 
+      <Footer />
     </>
   )
 }
