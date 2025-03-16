@@ -13,10 +13,7 @@ function AddMovie() {
     const navigate = useNavigate();
 
 
-
-
-    //console.log(parametrosDinamicos)
-
+    // Traemos la data desde la API externa
     useEffect(() => {
 
         const options = {

@@ -18,7 +18,7 @@ const parametrosDinamicos = useParams();
 const navigate = useNavigate();
 const baseURLImage = "http://image.tmdb.org/t/p/original"
 const baseURLImageProfileActors = "http://image.tmdb.org/t/p/w185"
-let imageURL ="";
+//let imageURL ="";
 
 
 
@@ -61,7 +61,6 @@ const eliminarPelicula = async (evento) => {
     evento.preventDefault()
     try {
         await axios.delete(`${import.meta.env.VITE_SERVER_URL}/watchMovies/${parametrosDinamicos.movieID}`)
-
         navigate("/")
     } 
     
@@ -71,7 +70,7 @@ const eliminarPelicula = async (evento) => {
   }
 }
 
-
+// Cláusula de Guardia
 if (datoMovieAPI === null || movieDB === null) {
   return (
       <div>
@@ -81,27 +80,6 @@ if (datoMovieAPI === null || movieDB === null) {
   )
 }
   
-
-
-/*
-if(movieDB === null) {
-  return (
-    <h3>Espere por favor...cargando la Data</h3>
-  )
-}
-  */
-/*
-console.log("Esto es movieDB")
-console.log(movieDB)
-console.log(movieDB.movieIdAPI)
-*/
-
-//console.log("Esto es datoMovieAPI de MovieDetails");
-console.log(datoMovieAPI.credits.cast);
-
-// imageURL = baseURLImage + datoMovieAPI.poster_path
-
-
   return (
 
     <div style={{display: "flex", flexDirection: "column", alignItems: "center"}}> 
@@ -118,6 +96,8 @@ console.log(datoMovieAPI.credits.cast);
             <p>Fecha de estreno: {datoMovieAPI.release_date}</p>  
             <p>{datoMovieAPI.overview}</p>
           </div>
+
+          {/* El Carousel de las actrices y actores de la película */}
           <div className="carouselProfileCast">
             <Carousel>
                 {datoMovieAPI.credits.cast.map((cadaActor, i) => {
@@ -135,26 +115,6 @@ console.log(datoMovieAPI.credits.cast);
             </div>
 
       </div>
-       
-
-
-
-      {/*}
-      <Card style={{width: "50%", display: "flex", justifySelf: "center"}}>
-          <Card.Img variant="top" src={baseURLImage + datoMovieAPI.poster_path} alt="poster-pelicula" />
-          <Card.Title>{datoMovieAPI.title}</Card.Title>
-          <Card.Body>
-            <Card.Text>Duración: {datoMovieAPI.runtime} minutos</Card.Text>
-            <Card.Text>Fecha de estreno: {datoMovieAPI.release_date}</Card.Text>
-            <Card.Text>{datoMovieAPI.overview}</Card.Text>
-            <Card.Text>Rating: {movieDB.rating}</Card.Text>
-           <Card.Text>{movieDB.watch === true ? "✅" : "❌"}</Card.Text> 
-          </Card.Body>
-
-      </Card>
-        */}
-     
-
       <div id="movieDTCardButton">
         <Link to={`/editMovie/${parametrosDinamicos.movieID}/${parametrosDinamicos.movieIdAPI}`}   > 
           <button id="btnEdit">Editar película</button>

@@ -4,6 +4,8 @@ import axios from 'axios'
 
 function EditMovie() {
 
+
+// ESTADOS  
 const [movieDB, setMovieDB] = useState(null)
 const [datoMovieAPI, setDatoMovieAPI] = useState(null)
 const [rating, setRating] = useState(0)
@@ -16,6 +18,7 @@ let imageURL = "";
 
 
 
+// Traemos las dos datas: la API externa y la DB interna. La última para poder editarla.
 useEffect(() => {
 
     axios.get(`${import.meta.env.VITE_SERVER_URL}/watchMovies/${parametrosDinamicos.movieID}`)
@@ -51,8 +54,6 @@ useEffect(() => {
 
   const realizarEdicion = async (evento) => {
     evento.preventDefault()
-    //console.log("Esto es la Watch que viene de antes en la Movie Card")
-    //console.log(watch)
 
     try {
         await axios.patch(`${import.meta.env.VITE_SERVER_URL}/watchMovies/${parametrosDinamicos.movieID}`, {
@@ -74,9 +75,7 @@ useEffect(() => {
 
    // Asignamos a la base URL de la imagen y le añadimos el path que nos devuelve la data. Así tendremos una URL válida para mostrar el poster
    imageURL = baseURLImage + datoMovieAPI.poster_path;
-   //console.log("Esto es Watch")
-   //console.log(watch)
-
+   
 
    // Iniciamos los valores watch y rating al que venía ya puesto en la ficha de la película
    if(watch === null) {

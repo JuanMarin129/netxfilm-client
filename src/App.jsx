@@ -45,8 +45,3 @@ function App() {
 export default App
 
 
-/*       <Routes >
-
-      {/*  <Route path="/movieDetails" element= {<MovieDetails />} /> }
-
-      </Routes>  */

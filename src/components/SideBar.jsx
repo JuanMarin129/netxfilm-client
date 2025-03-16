@@ -6,9 +6,6 @@ function SideBarHome(props) {
   //CSS
 
   const sideBarCSS = {
-
-    //backgroundColor: "#9C1A1A", // Rojo Oscuro #9C1A1A
-    //backgroundImage: "url:(imagen_fondo_sidebar_01.jpg)"
     background: "url(imagen_fondo_sidebar_01.jpg) 0" ,
     backgroundSize: "cover",
     backgroundColor: "black 20%",

@@ -12,7 +12,6 @@ function HomePage() {
 
     axios.get(`${import.meta.env.VITE_SERVER_URL}/watchMovies?watch=${isWatched}`)
     .then((response) => {
-        //console.log(response.data)
         setListMovies(response.data)
     })
     .catch((error) => {
@@ -23,12 +22,10 @@ function HomePage() {
 
   const mostrarPeliculasPendientes = () => {
      setIsWatched(false);
-        //console.log(isWatched)
     }
 
   const mostrarPeliculasVistas = () => {
     setIsWatched(true);
-        //console.log(isWatched)
     }
   
 
@@ -43,18 +40,6 @@ function HomePage() {
         )
     }
 
-    console.log(listMovies);
-    console.log(listMovies.length);
-
-    /*
-    if(listMovies !== null && listMovies.length === 0) {
-        return (
-            <h2>La data está vacía... ¡Rápido! Ve a buscar las pelis que más te interesen. En el icono de las palomitas tienes todo lo necesario</h2>
-        )
-    }
-        */
-  
-
 
     return (
     <div>
@@ -65,12 +50,11 @@ function HomePage() {
             <button className="btnMainGreen" onClick={mostrarPeliculasVistas}>Películas ya vistas</button>
         </div>
 
-
+        {/* Pintamos una Card por cada elemento que traemos de la data interna de nuestra DB */}
         {listMovies !== null && listMovies.length === 0 ? <h2>La data está vacía... ¡Rápido! Ve a buscar las pelis que más te interesen. En el icono de las palomitas tienes todo lo necesario</h2> 
         :  
         <div className="d-flex justify-content-center align-content-center flex-wrap" style={{marginTop: "25px"}}>
             {listMovies.map((cadaMovie, index) => {
-                //console.log(cadaMovie)
                 return ( <MovieCard 
                 key={index}
                 cadaMovie={cadaMovie}
